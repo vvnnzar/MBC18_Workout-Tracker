@@ -35,12 +35,25 @@ const WorkoutSchema = new Schema({
       sets: {
         type: Number,
       },
+      distance: {
+        type: Number,
+      },
     },
   ],
 });
 
+WorkoutSchema.virtual("totalDuration").get(function () {
+  let duration = 0;
+
+  this.exercises.forEach((el) => {
+    duration += el.duration;
+  });
+
+  return duration;
+});
+
 //Add workout schema to mongoose model
-const Workout = mongoose.model("workout", WorkoutSchema);
+const Workout = mongoose.model("Workout", WorkoutSchema);
 
 // Export workout model
 module.exports = Workout;
