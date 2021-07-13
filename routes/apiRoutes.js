@@ -1,45 +1,24 @@
 // Import express router
 const router = require("express").Router();
+const express = require("express");
 
 // Import workout model
 const Workout = require("../models/workout");
 
-// GET Request for getting all workouts
 router.get("/api/workouts", async (req, res) => {
-  console.log("HELLO ");
   try {
     let dbWorkout = await Workout.aggregate([
-      // {
-      //   $addFields: {
-      //     totalDuration: {
-      //       $sum: '$exercises.duration',
-      //     },
-      //   },
-      // },
       {
-        $unwind: "exercises"
-      }
+        $unwind: "exercises",
+      },
     ]);
-    // let dbWorkout = await Workout.find().populate('exercises')
-    // console.log("????????", dbWorkout)
     res.json(dbWorkout);
   } catch {
-
     res.status(500);
   }
-  // .then((dbWorkout) => {
-  //   console.log("Please output data", dbWorkout);
-  //   res.json(dbWorkout);
-  // })
-  // .catch((err) => {
-  //   console.log(err);
-  //   res.json(err);
-  // });
 });
 
-// GET request
 router.get("/api/workouts/range", (req, res) => {
-  console.log("HELLO 2");
   Workout.aggregate([
     {
       $addFields: {
@@ -61,27 +40,34 @@ router.get("/api/workouts/range", (req, res) => {
     });
 });
 
-// POST workout
-router.post("/api/workouts", ({ body }, res) => {
+router.post("/api/workouts", (req, res) => {
   Workout.create({})
     .then((dbWorkout) => {
+      console.log(dbWorkout);
       res.json(dbWorkout);
     })
     .catch((err) => {
+      console.log(err);
       res.json(err);
     });
 });
 
-// PUT/Update workout
-router.put("/api/workouts/:id", ({ body, params }, res) => {
-  Workout.findOneAndUpdate(params.id, { $push: { exercises: body } })
-    .then((dbWorkout) => {
-      res.json(dbWorkout);
-    })
-    .catch((err) => {
-      res.json(err);
-    });
-});
+router.put(
+  "/api/workouts/:id",
+  express.json(),
+  async ({ body, params }, res) => {
+    console.log(params, body);
+    Workout.updateOne({ _id: params.id }, { $push: { exercises: body } })
+      .then((dbWorkout) => {
+        console.log(dbWorkout);
+        res.json(dbWorkout);
+      })
+      .catch((err) => {
+        console.log(err);
+        res.json(err);
+      });
+  }
+);
 
 // Export API routes
 module.exports = router;
