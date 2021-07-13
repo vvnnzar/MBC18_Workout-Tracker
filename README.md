@@ -2,64 +2,79 @@
 
 Monash Bootcamp Assignment 18 - Workout Tracker (noSQL)
 
-# Unit 18 Nosql Homework: Workout Tracker
+### About this project
 
-For this assignment, you'll create a workout tracker. You have already been provided with the front end code in the `Develop` folder. This assignment will require you to create Mongo database with a Mongoose schema and handle routes with Express.
+Monash Bootcamp starter code was enhanced to create this application.
 
-## User Story
+The Workout Tracker assists a consumer to reach their fitness goals more quickly by tracking their progress. The application provides capability to log multiple exercises in a workout on a given day, track the name, type, weight, sets, reps, and duration of exercise. If the exercise is a cardio exercise, it also allows the user to record the distance travelled.
 
-- As a user, I want to be able to view create and track daily workouts. I want to be able to log multiple exercises in a workout on a given day. I should also be able to track the name, type, weight, sets, reps, and duration of exercise. If the exercise is a cardio exercise, I should be able to track my distance traveled.
+### Project Links
 
-## Business Context
+This application is live via Heroku
 
-A consumer will reach their fitness goals more quickly when they track their workout progress.
+### Screen layout and Design
+
+The following image depicts the web application's appearance and functionality:
+(![Screen Design](https://github.com/vvnnzar/))
+
+### Acknowledgements
+
+This development was completed in part using the following online references:
+
+- Monash Bootcamp Collateral
+
+### Installation
+
+### Pre requisites
+
+To view and modify code you will require installation of:
+
+- Code editor software such as Visual Code Studio.
+- Node
+- Robo3T or Mongo DB Compass
+
+### Getting Started
+
+1. Install GITHib on your PC
+2. Create a local project repository
+3. Clone project repository using git clone
+4. Initialise the project using command: git init
+5. Install necessary dependencies, run the command: npm i
+6. Run seed file using npm run seed
+7. Invoke the application with command:note server.js. This will start localhost server on PORT 3000
+8. Open browser and type http://localhost:3000/ to run this application on your local machine.
+
+### Tests
 
 ## Acceptance Criteria
 
-When the user loads the page, they should be given the option to create a new workout or continue with their last workout.
+1. Application loads without error
+2. Landing page provides capability to create a new workout or continue last workout.
+3. User can add an exercise to the most recent/new workout plan.
+4. User can view the combined weight of multiple exercises from the past seven workouts on the `stats` page.
+5. User can view the total duration of each workout from the past seven workouts on the `stats` page.
 
-The user should be able to:
+### Code Deployment
 
-- Add exercises to the most recent workout plan.
+To update the project with latest code:
 
-- Add new exercises to a new workout plan.
+1. Run command git status to ensure no conflict of changes
+2. Run command git pull to get latest code
+3. Stage files for checkin using command git add .
+4. Commit files using command git commit -m "My commit message"
+5. Push files to gitlab main branch using command git push
 
-- View the combined weight of multiple exercises from the past seven workouts on the `stats` page.
+### Technologies Used
 
-- View the total duration of each workout from the past seven workouts on the `stats` page.
+- Express.js
+- Node.js
+- MongoDb
+- Mongoose
 
-> **Important:** Look into using a MongoDB aggregate function to dynamically add up and return the total duration for each workout. Check out the [MongoDB documentation on the $addFields](https://docs.mongodb.com/manual/reference/operator/aggregation/addFields/), the [MongoDB documentation on the $sum operator](https://docs.mongodb.com/manual/reference/operator/aggregation/sum/), and the [Mongoose documentation on aggregate functions](https://mongoosejs.com/docs/api.html#aggregate_Aggregate) to learn how it can be accomplished.
+### Versioning
 
-To deploy an application with a MongoDB database to Heroku, you'll need to set up a MongoDB Atlas account and connect a database from there to your application. Be sure to use the following guides for support:
+Initial Release
 
-- [Set Up MongoDB Atlas](../04-Important/MongoAtlas-Setup.md)
+### License
 
-- [Deploy with Heroku and MongoDB Atlas](../04-Important/MongoAtlas-Deploy.md)
-
-## Commit Early and Often
-
-One of the most important skills to master as a web developer is version control. Building the habit of committing via Git is important for the following two reasons:
-
-1. Your commit history is a signal to employers that you are actively working on projects and learning new skills.
-
-2. Your commit history allows you to revert your codebase in the event that you need to return to a previous state.
-
-Follow these guidelines for committing:
-
-- Make single-purpose commits for related changes to ensure a clean, manageable history. If you are fixing two issues, make two commits.
-
-- Write descriptive, meaningful commit messages so that you and anyone else looking at your repository can easily understand its history.
-
-- Don't commit half-done work, for the sake of your collaborators (and your future self!).
-
-- Test your application before you commit to ensure functionality at every step in the development process.
-
-We want you to have well over 200 commits by graduation, so commit early and often!
-
-## Submission on BCS
-
-You are required to submit the following:
-
-- The URL to the deployed application
-
-- The URL to the GitHub repository
+MIT
