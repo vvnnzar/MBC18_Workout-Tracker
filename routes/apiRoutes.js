@@ -5,17 +5,14 @@ const express = require("express");
 // Import workout model
 const Workout = require("../models/workout");
 
-router.get("/api/workouts", async (req, res) => {
-  try {
-    let dbWorkout = await Workout.aggregate([
-      {
-        $unwind: "exercises",
-      },
-    ]);
-    res.json(dbWorkout);
-  } catch {
-    res.status(500);
-  }
+router.get("/api/workouts", (req, res) => {
+  Workout.find({})
+    .then((dbWorkout) => {
+      res.json(dbWorkout);
+    })
+    .catch((err) => {
+      res.status(400).json(err);
+    });
 });
 
 router.get("/api/workouts/range", (req, res) => {
@@ -31,7 +28,6 @@ router.get("/api/workouts/range", (req, res) => {
     .sort({ _id: -1 })
     .limit(7)
     .then((dbWorkout) => {
-      console.log("Please output data", dbWorkout[0].exercises);
       res.json(dbWorkout);
     })
     .catch((err) => {
