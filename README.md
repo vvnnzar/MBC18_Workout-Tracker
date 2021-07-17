@@ -15,7 +15,9 @@ This application is live via Heroku
 ### Screen layout and Design
 
 The following image depicts the web application's appearance and functionality:
-(![Screen Design](https://github.com/vvnnzar/))
+(![Landing Page](https://github.com/vvnnzar/MBC18_Workout-Tracker/blob/main/public/screen%20design/Landing%20Page.png))
+(![Fitness Tracker](https://github.com/vvnnzar/MBC18_Workout-Tracker/blob/main/public/screen%20design/Fitness%20Tracker.png))
+
 
 ### Acknowledgements
 
@@ -73,8 +75,8 @@ To update the project with latest code:
 
 ### Versioning
 
-Initial Release
+- Initial Release
 
 ### License
 
-MIT
+- MIT
